@@ -26,7 +26,7 @@ var router = express.Router();
 
     console.log(id+'hh');
     console.log(typeof(id));
-  
+
       var qry = "SELECT * FROM userProj where user_id=?";
       connection.query(qry,id,function(err,result){
         if(err){

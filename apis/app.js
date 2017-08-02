@@ -25,11 +25,11 @@ var sockets = [];
 io.on('connection', function(socket){
     var handshakeData = socket.request;
     sockets[handshakeData._query['username']] = socket.idea;
-    console.log("handshake");
+    // console.log("handshake");
 
 socket.on('chat message', function(msg){
   io.emit('chat message', msg);
-  console.log("handshakeeeeee");
+  // console.log("handshakeeeeee");
 });
 });
 // app.get('/', function(req, res){

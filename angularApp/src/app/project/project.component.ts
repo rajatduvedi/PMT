@@ -62,7 +62,7 @@ export class DialogCreateBoxLabel{
       console.log(this.dialogData.labelName);
       this.labelservice.userProjectLabel(this.dialogData).subscribe(data=>{
       console.log("dataout");
-      this.router.navigate(['project/:this.dialogData.projid'])
+      this.router.navigate(['project',this.dialogData.projid])
     });
 
       }

@@ -19,7 +19,7 @@ export class ChatPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.sendMessage();
+    // this.sendMessage();
   }
   click(){
     this.userservice.logout();
