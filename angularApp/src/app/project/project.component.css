@@ -1,0 +1,9 @@
+.taskdiv{
+  display:inline;
+}
+.example-card {
+  width: 250px;
+  background: gray;
+  color:white;
+  display: inline-block;
+}

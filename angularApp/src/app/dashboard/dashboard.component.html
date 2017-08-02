@@ -1,0 +1,55 @@
+
+<div class="container">
+  <md-sidenav-container>
+      <md-sidenav #sidenav mode="side" class="app-sidenav">
+      <!-- <md-nav-list> -->
+          <button md-fab color="primary" (click)="click()">logout
+          </button>
+      <!-- </md-nav-list> -->
+          <button md-fab color="primary" (click)="chat()"> Chat
+          </button>
+      </md-sidenav>
+      <md-toolbar color="primary">
+          <button md-icon-button (click)="sidenav.toggle()">
+              <md-icon class="md-24" >menu</md-icon>
+          </button>
+      </md-toolbar>
+      <div class="app-content">
+        <div class="createeProject">
+            <button md-raised-button color="primary" (click)="openCreateBoxDialog()">
+            create project
+            </button>
+        </div>
+        <!-- <ul *ngFor="let item of projects">
+        <div class="createProject">
+          {{item.projName}}
+        </div>
+      </ul> -->
+
+    <md-grid-list cols="4" rowHeight="100px">
+        <md-grid-tile
+            *ngFor="let item of projects">
+        <div class="projectdiv" (click)="projectdiv(item.id)">
+          <h2>  {{item.projName}} </h2>
+        </div>
+        </md-grid-tile>
+    </md-grid-list>
+
+
+  </div>
+</md-sidenav-container>
+
+  <!-- <md-sidenav-container class="example-container">
+    <md-sidenav #sidenav class="example-sidenav">
+      Jolly good!
+    </md-sidenav>
+    <md-toolbar color="primary">
+    <div class="example-sidenav-content">
+          <button type="button" md-button (click)="sidenav.open()">
+          Open sidenav
+          </button>
+    </div>
+      </md-toolbar>
+  </md-sidenav-container> -->
+
+</div>

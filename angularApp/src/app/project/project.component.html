@@ -1,0 +1,45 @@
+<div class="container">
+  <md-sidenav-container>
+      <md-sidenav #sidenav mode="side" class="app-sidenav">
+      <!-- <md-nav-list> -->
+          <button md-fab color="primary" (click)="click()">logout
+          </button>
+      <!-- </md-nav-list> -->
+      </md-sidenav>
+      <md-toolbar color="primary">
+          <button md-icon-button (click)="sidenav.toggle()">
+              <md-icon class="md-24" >menu</md-icon>
+          </button>
+      </md-toolbar>
+      <div class="app-content">
+        <div class="createeProject">
+            <button md-raised-button color="primary" (click)="openCreateBoxDialog()">
+            ADD a List
+            </button>
+        </div>
+        <div  class="taskdiv" *ngFor="let item of label">
+        <md-card class="example-card">
+            <md-card-header>
+              <div md-card-avatar class="example-header-image"></div>
+              <md-card-title><h3>{{item.labelName}}</h3></md-card-title>
+              <!-- <md-card-subtitle>label Name</md-card-subtitle> -->
+            </md-card-header>
+
+            <md-card-content>
+              <ul *ngFor="let item of label">
+                <label>task1</label>
+              </ul>
+              <md-input-container class="example-full-width">
+                <input type="text" mdInput placeholder="Company " placeholder="Task">
+              </md-input-container>
+
+            </md-card-content>
+            <md-card-actions>
+              <button md-button>Add Task</button>
+              <!-- <button md-button>Cancel</button> -->
+            </md-card-actions>
+            </md-card>
+          </div>
+      </div>
+    </md-sidenav-container>
+</div>

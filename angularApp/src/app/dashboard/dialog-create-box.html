@@ -1,0 +1,9 @@
+<h1 md-dialog-title>Project</h1>
+<div md-dialog-content>Add a new Project</div>
+<div md-dialog-actions>
+  <md-input-container class="inputrow">
+    <input type="text" mdInput  name="input" [(ngModel)]="dialogData.projName" placeholder="Project Name">
+</md-input-container>
+  <button md-button md-dialog-close=1 (click)=submit()>create project</button>
+  <button md-button md-dialog-close=''>cancel</button>
+</div>

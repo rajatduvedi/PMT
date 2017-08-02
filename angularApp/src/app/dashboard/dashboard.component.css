@@ -1,0 +1,10 @@
+.createProject{
+  height:90px;
+  width: 90px;
+  color: black;
+  text-align: center;
+background: rgb(63, 81, 181);
+}
+.mat-figure{
+  background: blue;
+}

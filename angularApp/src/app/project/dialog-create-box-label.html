@@ -1,0 +1,11 @@
+<h1 md-dialog-title>Project-Label</h1>
+<div md-dialog-content>Add a new Project - label</div>
+<div class="formcontroller">
+<md-input-container class="inputrow">
+    <input type="text" mdInput  name="input" [(ngModel)]="dialogData.labelName" placeholder="Label Name">
+</md-input-container>
+  <div class="inputrow"> <div> {{dialogData.labelName}}</div>
+  <button md-button md-dialog-close=1 (click)=submit()>create label</button>
+  <button md-button md-dialog-close=''>cancel</button>
+</div>
+</div>
