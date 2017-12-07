@@ -7,8 +7,8 @@ import 'rxjs/add/operator/do';
 import { User } from '../user';
 @Injectable()
 export class UserService{
-  private dataurl='http://localhost:8000/user/register';
-  private loginurl='http://localhost:8000/user/login';
+  private dataurl='http://localhost:8000/apis/register';
+  private loginurl='http://localhost:8000/apis/login';
   constructor( private http:Http){}
   userRegister(item:any) {
         let body = '';

@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit {
     console.log(this.user);
     this.projectservice.getproject(this.user.id).subscribe(data=>{
     this.projects = data;
-    console.log(data);
+    console.log(typeof(this.projects));
     console.log("getproject")
     });
 

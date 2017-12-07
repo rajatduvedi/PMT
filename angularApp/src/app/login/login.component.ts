@@ -31,9 +31,9 @@ const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA
     console.log(this.id);
      }
      ngOnInit() {
-       if(localStorage.getItem('currentUser')){
-         this.router.navigate(['dashboard'])
-       }
+      //  if(localStorage.getItem('currentUser')){
+      //    this.router.navigate(['dashboard'])
+      //  }
      }
 
   emailFormControl = new FormControl('', [

@@ -3,8 +3,8 @@ import{ Http , Response , Headers} from '@angular/http';
 // import{ Observable }from 'rxjs/Observable';
 @Injectable()
 export class LabelService{
-    private dataurl='http://localhost:8000/label/createProjlabel';
-    private getdataurl='http://localhost:8000/label/getProjLabel/';
+    private dataurl='http://localhost:8000/apis/createProjlabel';
+    private getdataurl='http://localhost:8000/apis/getProjLabel/';
     constructor( private http:Http){}
     userProjectLabel(item:any) {
       let body = '';

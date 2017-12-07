@@ -7,8 +7,8 @@ import{ Http , Response , Headers} from '@angular/http';
 
 @Injectable()
 export class ProjectService{
-  private dataurl='http://localhost:8000/project/createProj';
-  private getdataurl='http://localhost:8000/project/getProj/';
+  private dataurl='http://localhost:8000/apis/createProj';
+  private getdataurl='http://localhost:8000/apis/getProj/';
   constructor( private http:Http){}
   userProject(item:any) {
         let body = '';

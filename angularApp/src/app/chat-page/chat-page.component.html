@@ -11,69 +11,58 @@
       </md-sidenav>
       <md-toolbar color="primary">
           <button md-icon-button (click)="sidenav.toggle()">
-              <md-icon class="md-24" >menu</md-icon>
+              <md-icon class="md-24" >{{currentUser.username}}</md-icon>
           </button>
+
       </md-toolbar>
       <div class="app-content">
-        <div class="col-md-7 left_padd">
-  <div class="row">
-    <div class="troll_container">
-      <div class="panel panel-primary">
-        <div class="panel-heading troll_background">Chat Box</div>
-        <div class="panel-body body_colour">
-          <div class="trolls_list" #scrollMe>
-            <div class="col-md-12" *ngFor="let c of chats">
-              <div class="col-md-3 titles_text">
-                <div class="row" (click)="sendRequest(c.username)">
-                  <span class="single_user" [style.color]="c.userTextColor">
-                    <div class="user_img">
-                      <img *ngIf="c.userRole.icon; else defaultIcon" src="{{c.userRole.icon}}" />
-                      <ng-template #defaultIcon><i class="fa fa-user"></i></ng-template>
-                    </div>
-                    <span class="user_name">{{ c.username }}</span>
-                  </span>
-                </div>
-              </div>
-              <div class="col-md-7 text_trool">
-                <div class="row">
-                  <p>{{ c.message }}</p>
-                </div>
-              </div>
-              <div class="col-md-2 time_text">
-                <div class="row">
-                  <p class="text-center">{{ getLocalDate(c.sent_on) }}</p>
-                </div>
-
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="row">
-              <div class="chat_box">
-                <div class="col-md-12">
-                  <div class="row">
-                    <div class="shout_box">
-                      <div class="form-group">
-                        <form (ngSubmit)="sendMessage()" #msgForm="ngForm">
-                          <input type="text" [(ngModel)]="msgData.message" name="message" class="form-control" placeholder="send..." id="usr">
-                          <div class="send_box">
-                            <button type="submit" class="btn btn-primary">Send
-                            </button>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
+        <!-- <div class="message">
+          <ul *ngFor = "let c of chats">
+            <li> {{c}}</li>
+          </ul>
         </div>
-      </div>
+        <form (ngSubmit)="sendMessage()" #msgForm="ngForm">
+
+          <input type="text" [(ngModel)]="msgData.message" name="message" class="form-control" placeholder="send..." id="usr">
+          <div class="send_box">
+            <button type="submit" class="btn btn-primary">Send
+            </button>
+          </div>
+        </form> -->
+        <div class="onlineUsers" >
+          <input type="text" class="search-query form-control" placeholder="Search" [ngModel]="filterString" (keyup)="filterOnlineUsers($event)" />
+          <label> <h4>Online Users </h4></label>
+          <label (click)="chatoff()"> chat off </label>
+          <label (click)="chaton()"> chat on </label>
+          <ul *ngFor="let onlineUser of onlineUsers">
+            <li (click)="sendRequest(onlineUser)">
+          {{onlineUser}}
+        </li>
+        </ul>
+        </div>
+        <div class="chatbox">
+          <label> Chat BOX </label>
+        <div *ngFor="let message of chats">
+            {{message.username}} ::
+             {{message.message}}
+          </div>
+
+      <input [(ngModel)]="msgData.message" (keyup)="$event.keyCode == 13 && sendMessage()" />
+      <button (click)="sendMessage()">Send</button>
+</div>
+<div >
+  <label><h3> Notifications </h3></label>
+<li class="media" *ngFor="let notification of notifications">
+  <div class="media-body">
+    <div class="sender_text">
+      <p>{{ notification.message }}</p>
+    </div>
+    <div class="choose_buttons" *ngIf="notification.type == 'receive'">
+      <button md-fab color="primary" href="javascript:void(0);" (click)="acceptRequest(notification.username)"><i class="fa fa-check"></i>yes</button>
+      <button md-fab color="primary" href="javascript:void(0);" (click)="rejectRequest(notification.username)"><i class="fa fa-times"></i>no</button>
     </div>
   </div>
+</li>
 </div>
 </div>
 </md-sidenav-container>

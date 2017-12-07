@@ -1,0 +1,30 @@
+<div *ngFor="let chatBox of chatBoxes" class="popup-box chat-popup" id="{{ chatBox.receiver }}"> <!--  [style.right]="chatBox.style" -->
+	<div class="popup-head">
+		<div class="popup-head-left">{{ chatBox.receiver }}</div>
+		<div class="popup-head-right"><a href="javascript:void(0);" (click)="removeChatBox(chatBox)">&#10005;</a></div>
+		<div style="clear: both"></div>
+	</div>
+	<div class="popup-messages">
+		<div class="message_box"  #scrollChat>
+			<div class="col-md-12" *ngFor="let c of chatBox.chats">
+				<div class="{{ c.class }}" data-toggle="tooltip" title="{{ getLocalDate(c.sent_on) }}">
+					<p>{{ c.message }}</p>
+				</div>
+			</div>
+		</div>
+		<div class="input_box">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="popup-input">
+						<form (ngSubmit)="sendPrivateMessage(chatBox.receiver)" #msgForm="ngForm">
+							<input type="text" [(ngModel)]="msgData.message" name="message" class="form-control" placeholder="shout..." id="usr" required>
+							<button type="submit" class="btn btn-primary">
+								<i class="fa fa-paper-plane" aria-hidden="true"></i>
+						</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

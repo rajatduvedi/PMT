@@ -21,6 +21,7 @@ import { DashboardComponent , DialogCreateBox } from './dashboard/dashboard.comp
 import { AuthGuard } from './guards/auth.guard';
 import { ProjectComponent , DialogCreateBoxLabel } from './project/project.component';
 import { ChatPageComponent } from './chat-page/chat-page.component';
+import { ChatBoxComponent } from './_directives/index';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ChatPageComponent } from './chat-page/chat-page.component';
     DialogCreateBox,
     ProjectComponent,
     DialogCreateBoxLabel,
-    ChatPageComponent
+    ChatPageComponent,
+    ChatBoxComponent
   ],
   imports: [
     BrowserModule,
